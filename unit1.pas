@@ -8,6 +8,7 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls;
 
+
 type
 
   { TForm1 }
@@ -16,9 +17,14 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+
     CheckBox1: TCheckBox;
+
     CheckBox2: TCheckBox;
+
+
     CheckBox3: TCheckBox;
+
     CheckBox4: TCheckBox;
     CheckBox5: TCheckBox;
     CheckBox6: TCheckBox;

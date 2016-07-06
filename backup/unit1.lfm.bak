@@ -1,8 +1,13 @@
 object Form1: TForm1
-  Left = 618
+  Left = 340
   Height = 161
-  Top = 112
+  Top = 236
   Width = 563
+  HorzScrollBar.Page = 563
+  HorzScrollBar.Visible = False
+  VertScrollBar.Page = 176
+  VertScrollBar.Visible = False
+  BorderStyle = bsDialog
   Caption = 'Equations'
   ClientHeight = 161
   ClientWidth = 563
@@ -2129,6 +2134,7 @@ object Form1: TForm1
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
+  ParentBiDiMode = False
   LCLVersion = '1.4.4.0'
   object Image1: TImage
     Left = 0
@@ -23589,7 +23595,7 @@ object Form1: TForm1
   end
   object Edit3: TEdit
     Left = 248
-    Height = 22
+    Height = 29
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23603,7 +23609,7 @@ object Form1: TForm1
   end
   object Edit4: TEdit
     Left = 360
-    Height = 22
+    Height = 29
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23617,7 +23623,7 @@ object Form1: TForm1
   end
   object Edit5: TEdit
     Left = 456
-    Height = 22
+    Height = 29
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23648,7 +23654,7 @@ object Form1: TForm1
   end
   object Edit7: TEdit
     Left = 24
-    Height = 22
+    Height = 29
     Top = 72
     Width = 40
     Enabled = False
@@ -23664,7 +23670,7 @@ object Form1: TForm1
   end
   object Edit8: TEdit
     Left = 136
-    Height = 22
+    Height = 29
     Top = 72
     Width = 40
     Enabled = False
@@ -23680,7 +23686,7 @@ object Form1: TForm1
   end
   object Edit9: TEdit
     Left = 248
-    Height = 22
+    Height = 29
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23695,7 +23701,7 @@ object Form1: TForm1
   end
   object Edit10: TEdit
     Left = 360
-    Height = 22
+    Height = 29
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23710,7 +23716,7 @@ object Form1: TForm1
   end
   object Edit11: TEdit
     Left = 456
-    Height = 22
+    Height = 29
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23930,7 +23936,7 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 24
-    Height = 22
+    Height = 29
     Top = 32
     Width = 40
     Enabled = False
@@ -23945,7 +23951,7 @@ object Form1: TForm1
   end
   object Edit2: TEdit
     Left = 136
-    Height = 22
+    Height = 29
     Top = 32
     Width = 40
     Enabled = False
@@ -23960,7 +23966,7 @@ object Form1: TForm1
   end
   object Edit12: TEdit
     Left = 128
-    Height = 22
+    Height = 24
     Top = 124
     Width = 267
     ReadOnly = True
@@ -23987,7 +23993,7 @@ object Form1: TForm1
   end
   object Edit6: TEdit
     Left = 24
-    Height = 22
+    Height = 29
     Top = 80
     Width = 371
     Font.CharSet = RUSSIAN_CHARSET
@@ -24051,7 +24057,7 @@ object Form1: TForm1
     Height = 105
     Top = 8
     Width = 248
-    Caption = '      Version:   2.0                Date:   06.07.2016       License:  Free Software           Code:  Nikita Fedorov        Design:  Kirill Kiselev, Nikita Fedorov          Latest Version:'
+    Caption = 'Version:   2.0                                                                              Date:   06.07.2016                                                         License:  Free Software                                           Code:  Nikita Fedorov                                           Design:  Kirill Kiselev, Nikita Fedorov                                               Latest Version:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12
@@ -24063,7 +24069,7 @@ object Form1: TForm1
     Visible = False
   end
   object StaticText2: TStaticText
-    Left = 32
+    Left = 23
     Height = 32
     Top = 143
     Width = 526
@@ -24083,6 +24089,7 @@ object Form1: TForm1
     Height = 22
     Top = 112
     Width = 348
+    Alignment = taCenter
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlue
     Font.Height = -12
@@ -24092,7 +24099,7 @@ object Form1: TForm1
     ParentFont = False
     ReadOnly = True
     TabOrder = 23
-    Text = 'https://www.dropbox.com/sh/6sw7xq8qx7j61i4/ZcnY5YovJk'
+    Text = 'http://yadi.sk/d/JIBAciLz5_q2m'
     Visible = False
   end
   object Edit14: TEdit

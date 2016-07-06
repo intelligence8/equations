@@ -1,8 +1,13 @@
 object Form1: TForm1
-  Left = 347
+  Left = 661
   Height = 161
-  Top = 232
+  Top = 185
   Width = 563
+  HorzScrollBar.Page = 563
+  HorzScrollBar.Visible = False
+  VertScrollBar.Page = 176
+  VertScrollBar.Visible = False
+  BorderStyle = bsDialog
   Caption = 'Equations'
   ClientHeight = 161
   ClientWidth = 563
@@ -2129,7 +2134,8 @@ object Form1: TForm1
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
-  LCLVersion = '1.0.8.0'
+  ParentBiDiMode = False
+  LCLVersion = '1.6.0.4'
   object Image1: TImage
     Left = 0
     Height = 880
@@ -23465,9 +23471,9 @@ object Form1: TForm1
   end
   object Label1: TLabel
     Left = 72
-    Height = 41
+    Height = 40
     Top = 26
-    Width = 22
+    Width = 21
     Caption = 'X'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23481,9 +23487,9 @@ object Form1: TForm1
   end
   object Label2: TLabel
     Left = 184
-    Height = 41
+    Height = 40
     Top = 26
-    Width = 22
+    Width = 21
     Caption = 'X'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23497,9 +23503,9 @@ object Form1: TForm1
   end
   object Label3: TLabel
     Left = 296
-    Height = 41
+    Height = 40
     Top = 26
-    Width = 22
+    Width = 21
     Caption = 'X'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23512,9 +23518,9 @@ object Form1: TForm1
   end
   object Label4: TLabel
     Left = 408
-    Height = 41
+    Height = 40
     Top = 26
-    Width = 22
+    Width = 21
     Caption = 'X'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23527,9 +23533,9 @@ object Form1: TForm1
   end
   object Label5: TLabel
     Left = 96
-    Height = 24
+    Height = 23
     Top = 24
-    Width = 11
+    Width = 10
     Caption = '4'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23543,9 +23549,9 @@ object Form1: TForm1
   end
   object Label6: TLabel
     Left = 208
-    Height = 24
+    Height = 23
     Top = 24
-    Width = 11
+    Width = 10
     Caption = '3'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23559,9 +23565,9 @@ object Form1: TForm1
   end
   object Label7: TLabel
     Left = 320
-    Height = 24
+    Height = 23
     Top = 24
-    Width = 11
+    Width = 10
     Caption = '2'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23574,9 +23580,9 @@ object Form1: TForm1
   end
   object Label8: TLabel
     Left = 504
-    Height = 41
+    Height = 40
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '= 0'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23628,10 +23634,11 @@ object Form1: TForm1
     OnKeyDown = Edit5KeyDown
     ParentFont = False
     TabOrder = 2
+    Text = '1'
   end
   object Button1: TButton
     Left = 411
-    Height = 48
+    Height = 46
     Top = 104
     Width = 136
     Caption = 'GO!'
@@ -23724,9 +23731,9 @@ object Form1: TForm1
   end
   object CheckBox1: TCheckBox
     Left = 64
-    Height = 19
+    Height = 35
     Top = 16
-    Width = 20
+    Width = 36
     Color = clDefault
     OnChange = CheckBox1Change
     ParentColor = False
@@ -23734,9 +23741,9 @@ object Form1: TForm1
   end
   object CheckBox2: TCheckBox
     Left = 176
-    Height = 19
+    Height = 35
     Top = 17
-    Width = 20
+    Width = 36
     Color = clNone
     OnChange = CheckBox2Change
     ParentColor = False
@@ -23744,9 +23751,9 @@ object Form1: TForm1
   end
   object CheckBox3: TCheckBox
     Left = 288
-    Height = 19
+    Height = 35
     Top = 17
-    Width = 20
+    Width = 36
     Checked = True
     Color = clNone
     OnChange = CheckBox3Change
@@ -23756,9 +23763,9 @@ object Form1: TForm1
   end
   object CheckBox4: TCheckBox
     Left = 400
-    Height = 19
+    Height = 35
     Top = 17
-    Width = 20
+    Width = 36
     Checked = True
     Color = clNone
     OnChange = CheckBox4Change
@@ -23768,9 +23775,9 @@ object Form1: TForm1
   end
   object CheckBox5: TCheckBox
     Left = 496
-    Height = 19
+    Height = 35
     Top = 17
-    Width = 20
+    Width = 36
     Checked = True
     Color = clNone
     OnChange = CheckBox5Change
@@ -23780,9 +23787,9 @@ object Form1: TForm1
   end
   object Label9: TLabel
     Left = 21
-    Height = 46
+    Height = 45
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '__'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23798,9 +23805,9 @@ object Form1: TForm1
   end
   object Label10: TLabel
     Left = 133
-    Height = 46
+    Height = 45
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '__'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23816,9 +23823,9 @@ object Form1: TForm1
   end
   object Label11: TLabel
     Left = 245
-    Height = 46
+    Height = 45
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '__'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23833,9 +23840,9 @@ object Form1: TForm1
   end
   object Label12: TLabel
     Left = 357
-    Height = 46
+    Height = 45
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '__'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23850,9 +23857,9 @@ object Form1: TForm1
   end
   object Label13: TLabel
     Left = 453
-    Height = 46
+    Height = 45
     Top = 26
-    Width = 43
+    Width = 42
     Caption = '__'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23867,9 +23874,9 @@ object Form1: TForm1
   end
   object Label14: TLabel
     Left = 432
-    Height = 50
+    Height = 49
     Top = 17
-    Width = 18
+    Width = 17
     Caption = '+'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23882,9 +23889,9 @@ object Form1: TForm1
   end
   object Label15: TLabel
     Left = 336
-    Height = 50
+    Height = 49
     Top = 17
-    Width = 18
+    Width = 17
     Caption = '+'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -23897,9 +23904,9 @@ object Form1: TForm1
   end
   object Label16: TLabel
     Left = 224
-    Height = 50
+    Height = 49
     Top = 17
-    Width = 18
+    Width = 17
     Caption = '+'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23913,9 +23920,9 @@ object Form1: TForm1
   end
   object Label17: TLabel
     Left = 112
-    Height = 50
+    Height = 49
     Top = 17
-    Width = 18
+    Width = 17
     Caption = '+'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
@@ -23968,9 +23975,9 @@ object Form1: TForm1
   end
   object CheckBox6: TCheckBox
     Left = 24
-    Height = 22
+    Height = 35
     Top = 128
-    Width = 76
+    Width = 92
     Caption = '              '
     Color = clNone
     Font.CharSet = RUSSIAN_CHARSET
@@ -24001,9 +24008,9 @@ object Form1: TForm1
   end
   object Label18: TLabel
     Left = 40
-    Height = 19
+    Height = 18
     Top = 131
-    Width = 58
+    Width = 57
     Caption = 'Fractions'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
@@ -24030,7 +24037,7 @@ object Form1: TForm1
     TabOrder = 19
   end
   object Button3: TButton
-    Left = 184
+    Left = 192
     Height = 33
     Top = 176
     Width = 173
@@ -24046,11 +24053,11 @@ object Form1: TForm1
     Visible = False
   end
   object StaticText1: TStaticText
-    Left = 208
+    Left = 192
     Height = 105
     Top = 8
-    Width = 168
-    Caption = '    Version:   1.1  BETA'#13#10'        Date:   07.06.2013'#13#10'     License:  Free Software'#13#10'         Code:  Nikita Fedorov'#13#10'      Design:  Kirill Kiselev'#13#10'       Latest Version:'
+    Width = 248
+    Caption = '       Version:   2.0                                                Date:   07.06.2013                                  License:  Free Software                                 Code:  Nikita Fedorov                              Design:  Kirill Kiselev, Nikita Fedorov             Latest Version:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12
@@ -24062,11 +24069,11 @@ object Form1: TForm1
     Visible = False
   end
   object StaticText2: TStaticText
-    Left = 32
+    Left = 23
     Height = 32
     Top = 143
     Width = 526
-    Caption = 'If you met any errors or mistakes, or if you wanna say something, write to'
+    Caption = 'If you meet any errors or mistakes, or if you wanna say something, write to'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12
@@ -24078,10 +24085,11 @@ object Form1: TForm1
     Visible = False
   end
   object Edit13: TEdit
-    Left = 112
+    Left = 104
     Height = 25
     Top = 112
     Width = 348
+    Alignment = taCenter
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlue
     Font.Height = -12
@@ -24091,7 +24099,7 @@ object Form1: TForm1
     ParentFont = False
     ReadOnly = True
     TabOrder = 23
-    Text = 'https://www.dropbox.com/sh/6sw7xq8qx7j61i4/ZcnY5YovJk'
+    Text = 'http://yadi.sk/d/JIBAciLz5_q2m'
     Visible = False
   end
   object Edit14: TEdit

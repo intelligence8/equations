@@ -16,8 +16,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="3"/>
+      <MajorVersionNr Value="2"/>
       <StringTable CompanyName="inc8" ProductName="Equations" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
