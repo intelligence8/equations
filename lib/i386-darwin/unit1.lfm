@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 684
+  Left = 618
   Height = 161
-  Top = 111
+  Top = 112
   Width = 563
   Caption = 'Equations'
   ClientHeight = 161
@@ -24051,7 +24051,7 @@ object Form1: TForm1
     Height = 105
     Top = 8
     Width = 248
-    Caption = '    Version:   1.2  BETA'#13#10'        Date:   07.06.2013'#13#10'     License:  Free Software'#13#10'         Code:  Nikita Fedorov'#13#10'      Design:  Kirill Kiselev, Nikita Fedorov'#13#10'        Latest Version:'
+    Caption = '      Version:   2.0                  Date:   06.07.2016       License:  Free Software           Code:  Nikita Fedorov        Design:  Kirill Kiselev, Nikita Fedorov          Latest Version:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12
@@ -24067,7 +24067,7 @@ object Form1: TForm1
     Height = 32
     Top = 143
     Width = 526
-    Caption = 'If you met any errors or mistakes, or if you wanna say something, write to'
+    Caption = 'If you meet any errors or mistakes, or if you wanna say something, write to'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12

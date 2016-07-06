@@ -92,10 +92,11 @@ implementation
 
 { TForm1 }
 
-procedure secondDegree(b, c: extended; var x11, x12, x21, x22: extended);
+procedure secondDegree(b, c: extended; var x11, x12, x21, x22: extended; var answer: String);
 var d: extended;
 begin
  d := b*b-4*c;
+ answer := 'D = '+floatToStr(d);
  if d > 0 then
   begin
    x11 := (-b + sqrt(d))*0.5;
@@ -117,27 +118,37 @@ begin
   end;
 end;
 
-procedure thirdDegree(b, c, d: extended; var x11, x21, x22, x31, x32: extended);
+procedure thirdDegree(b, c, d: extended; var x11, x21, x22, x31, x32: extended; var answer: String);
 var p, q, d1, d2, F, u, v, alpha, beta: extended;
+  answer1: String;
 begin
  p := c - b*b/3;
  q := (2*b*b*b - 9*b*c)/27 + d;
  d1 := p*p*p/27 + q*q/4;
+ answer := 'Q = '+floatToStr(d1);
 
  if d1>0
     then
       begin
-        if -q/2+Sqrt(d1)>0 then u:=exp(ln(abs(-q/2+Sqrt(d1)))/3);
-        if -q/2+Sqrt(d1)<0 then u:=-exp(ln(abs(-q/2+Sqrt(d1)))/3);
-        if -q/2+Sqrt(d1)=0 then u:=0;
-        if -q/2-Sqrt(d1)>0 then v:=exp(ln(abs(-q/2-Sqrt(d1)))/3);
-        if -q/2-Sqrt(d1)<0 then v:=-exp(ln(abs(-q/2-Sqrt(d1)))/3);
-        if -q/2-Sqrt(d1)=0 then v:=0;
-        x11:=u+v-b/3;
-        x21:=-(u+v)/2-b/3;
-        x22:=(u-v)*Sqrt(3)/2;
-        x31:=-(u+v)/2-b/3;
-        x32:=(u-v)*Sqrt(3)/2;
+        if -q/2+Sqrt(d1) = 0 then
+          begin
+            if -q/2-Sqrt(d1) < 0 then x11 := -exp(ln(abs(-q/2-Sqrt(d1)))/3) -b/3
+            else x11 := exp(ln(abs(-q/2-Sqrt(d1)))/3)-b/3;
+          end
+        else if -q/2-Sqrt(d1) = 0 then
+          begin
+            if -q/2+Sqrt(d1) < 0 then x11 := -exp(ln(abs(-q/2+Sqrt(d1)))/3)-b/3
+            else x11 := exp(ln(abs(-q/2+Sqrt(d1)))/3)-b/3;
+          end
+        else if -q/2+Sqrt(d1) < 0 then
+          begin
+            x11 := -exp(ln(abs(-q/2+Sqrt(d1)))/3) - exp(ln(abs(-q/2-Sqrt(d1)))/3)-b/3;
+          end else
+          begin
+             if -q/2-Sqrt(d1) < 0 then x11 := exp(ln(abs(-q/2+Sqrt(d1)))/3) - exp(ln(abs(-q/2-Sqrt(d1)))/3) -b/3
+              else x11 := exp(ln(abs(-q/2+Sqrt(d1)))/3) + exp(ln(abs(-q/2-Sqrt(d1)))/3)-b/3;
+          end;
+        secondDegree(b+x11,c+(b+x11)*x11,x21,x22,x31,x32,answer1);
       end else
   if d1=0
     then
@@ -151,42 +162,7 @@ begin
         x22:=0;
         x32:=0;
       end else
-
-
- {if d1 >= 0 then
-  begin
-   if -q*0.5 + sqrt(d1) = 0 then
-    begin
-     if q = 0 then
-      begin
-       alpha := 0; beta := 0;
-      end
-     else
-      begin
-       alpha := 0;
-       beta := -exp(ln(q*0.5 + sqrt(d1))/3);
-      end;
-    end
-   else
-    begin
-     if -q*0.5 - sqrt(d1) = 0 then
-      begin
-       alpha := exp(ln(-q*0.5 + sqrt(d1))/3);
-       beta := 0;
-      end
-     else
-      begin
-       alpha := ((-q*0.5 + sqrt(d1))/abs(-q*0.5 + sqrt(d1)))*exp(ln(abs(-q*0.5 + sqrt(d1)))/3);
-       beta := ((-q*0.5 - sqrt(d1))/abs(-q*0.5 - sqrt(d1)))*exp(ln(abs(-q*0.5 - sqrt(d1)))/3);
-      end;
-    end;
-   x11 := alpha + beta - b/3;
-   x21 := -0.5*(alpha + beta) - b/3;
-   x22 := sqrt(3)*0.5*(alpha - beta);
-   x31 := -0.5*(alpha + beta) - b/3;;
-   x32 := -sqrt(3)*0.5*(alpha - beta);
-  end
- else }if d1 < 0 then
+    if d1 < 0 then
   begin
    if q < 0 then F:=Arctan(-2*sqrt(-d)/q)
    else if q > 0 then F := Arctan(-2*sqrt(-d)/q)+Pi
@@ -194,14 +170,46 @@ begin
    x11 := 2*sqrt(-p/3)*cos((F+2*Pi)/3)-b/3;
    u := x11 + b;
    v := u*x11 + c;
-   secondDegree(u, v, x21, x22, x31, x32);
+   secondDegree(u, v, x21, x22, x31, x32,answer1);
   end;
 end;
 
 
+procedure fourthDegree(aa, bb, cc, dd: extended; var x11, x12, x21, x22, x31, x32,x41,x42: extended; var answer: String);
+var y1,y21,y22,y31,y32,a,b,c,d,m,n: extended;
+  answer1, answer2, answer3: String;
+begin
+    a:=-bb;
+    b:=(aa*cc-4*dd);
+    c:=-aa*aa*dd+4*bb*dd-cc*cc;
+    thirdDegree(a,b,c,y1,y21,y22,y31,y32,answer1);
+
+     if (a*y1/2-c)<0 then
+     begin
+      m:=sqrt(abs(aa*aa/4-bb+y1));
+      n:=-sqrt(abs(y1*y1/4-dd));
+     end
+    else
+     begin
+      m:=sqrt(abs(aa*aa/4-bb+y1));
+      n:=sqrt(abs(y1*y1/4-dd));
+     end;
+      b:=aa/2-m;
+      c:=y1/2-n;
+      secondDegree(b,c,x11,x12,x21,x22,answer2);
+      insert('1',answer2,2);
+
+      b:=aa/2+m;
+      c:=y1/2+n;
+      secondDegree(b,c,x31,x32,x41,x42,answer3);
+      insert('2',answer3,2);
+      answer := answer1+'; '+answer2+'; '+answer3;
+  end;
+
+
 
 procedure TForm1.Button1Click(Sender: TObject);
-var q,w,e,r,t,q1,w1,e1,r1,t1,a,b,c,aa,bb,cc,dd,m,n,y1,d,p3,q3,Af,Af1,Af2,Bt,Bt1,Bt2,Re,Im,F,x1,x2,x3,x4,z1,z2,d1,d2,b1,c1,x11,x12,x21,x22,x31,x32,x41,x42: extended;
+var q,w,e,r,t,q1,w1,e1,r1,t1,a,b,c,aa,bb,cc,dd,m,n,y1,d,p3,q3,Af,Af1,Af2,Bt,Bt1,Bt2,Re,Im,F,x1,x2,x3,x4,z1,z2,d1,d2,b1,c1,x11,x12,x21,x22,x31,x32,x41,x42: extended; answer: string;
 begin
 
  if Edit1.Text='' then Edit1.Text:=FloatToStr(1);
@@ -300,14 +308,15 @@ if Checkbox5.Checked=False then
     end
    else  //q != 0
    begin
-    secondDegree(w/q,e/q,x11,x12,x21,x22);
+    secondDegree(w/q,e/q,x11,x12,x21,x22,answer);
+    Edit12.Text:=answer;
        if x12 <> 0 then
        begin
         if x12=1 then begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i ';
         end
         else begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i ';
         end
        end else //x12 = 0
        begin
@@ -334,14 +343,15 @@ begin
    end
    else  //w != 0
    begin
-    secondDegree(e/w,r/w,x11,x12,x21,x22);
+    secondDegree(e/w,r/w,x11,x12,x21,x22,answer);
+    Edit12.Text:=answer;
        if x12 <> 0 then
        begin
         if x12=1 then begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i ';
         end
         else begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i';
         end
        end else //x12 = 0
        begin
@@ -354,7 +364,15 @@ begin
   end
   else  // q != 0
 begin
-thirdDegree(w/q,e/q,r/q,x11,x21,x22,x31,x32);
+thirdDegree(w/q,e/q,r/q,x11,x21,x22,x31,x32,answer);
+    Edit12.Text:=answer;
+       if x22 = 0 then
+       begin
+         Edit6.Text:='X[1] = 0; X[2] = '+FloatToStr(x11)+';  X[3] = '+FloatToStr(x21)+';  X[4] = '+FloatToStr(x31);
+       end else
+       begin
+         Edit6.Text:='X[1] = 0; X[2] = '+FloatToStr(x11)+';  X[3,4] = '+FloatToStr(x21)+' +/- '+FloatToStr(x22)+'*i';
+       end;
       Edit12.Visible:=True;
       end;
     end;
@@ -382,14 +400,15 @@ begin
      end
             else {ВТОРАЯ СТЕПЕНЬ}
      begin
-        secondDegree(r/e,t/e,x11,x12,x21,x22);
+        secondDegree(r/e,t/e,x11,x12,x21,x22,answer);
+        edit12.Text := answer;
         if x12=1 then
         begin
-         Edit6.Text:='X = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X = '+FloatToStr(x11)+' +/- i ';
         end
         else if x12 <> 0  then
         begin
-         Edit6.Text:='X = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i ';
         end
         else if x12 = 0  then
         begin
@@ -401,128 +420,29 @@ begin
    end
    else {ТРЕТЬЯ СТЕПЕНЬ}
      begin
-       thirdDegree(e/w,r/w,t/w,x11,x21,x22,x31,x32);
+       thirdDegree(e/w,r/w,t/w,x11,x21,x22,x31,x32,answer);
+       edit12.Text := answer;
        if x22 = 0 then
        begin
          Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2] = '+FloatToStr(x21)+';  X[3] = '+FloatToStr(x31);
        end else
        begin
-         Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2,3] = '+FloatToStr(x21)+' +/- '+FloatToStr(x22)+'*i  (Complex)';
+         Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2,3] = '+FloatToStr(x21)+' +/- '+FloatToStr(x22)+'*i ';
        end;
      end;
      Edit12.Visible:=True;
   end
   else   {ЧЕТВЕРТАЯ СТЕПЕНЬ}
-   begin
-    aa:=w/q; bb:=e/q; cc:=r/q; dd:=t/q;
-    a:=-bb;
-    b:=(aa*cc-4*dd);
-    c:=-aa*aa*dd+4*bb*dd-cc*cc;
-    begin
-       p3:=(3*b-a*a)/3;
-       q3:=(2*a*a*a-9*a*b+27*c)/27;
-       z1:=4*p3*p3*p3; z2:=27*q3*q3;
-       d:=(z1+z2)/108;
-       Af:=0; Bt:=0; F:=0;
+  fourthDegree(w/q,e/q,r/q,t/q,x11,x12,x21,x22,x31,x32,x41,x42,answer);
+  Edit12.Text:=answer;
 
-       if d>0 then
-        begin
-         if (abs(-q3/2+sqrt(d))<>0) and (-q3/2-sqrt(d)<>0) then
-         begin
-          Af:=((-q3/2+sqrt(d))/abs(-q3/2+sqrt(d)))*exp(ln(abs(-q3/2+sqrt(d)))/3);
-          Bt:=((-q3/2-sqrt(d))/abs(-q3/2-sqrt(d)))*exp(ln(abs(-q3/2-sqrt(d)))/3);
-         end
-         else if abs(-q3/2+sqrt(d))<>0 then
-         begin
-          Af:=((-q3/2+sqrt(d))/abs(-q3/2+sqrt(d)))*exp(ln(abs(-q3/2+sqrt(d)))/3);
-         end
-         else if -q3/2-sqrt(d)<>0  then
-         begin
-          Bt:=((-q3/2-sqrt(d))/abs(-q3/2-sqrt(d)))*exp(ln(abs(-q3/2-sqrt(d)))/3);
-         end;
-
-
-         y1:=Af+Bt-a/3;
-        end else
-       if d=0 then
-        begin
-         if q3=0 then
-          begin
-           y1:=-a/3;
-          end
-         else
-          begin
-           Af:=((-q3/2)/abs(-q3/2))*Exp(Ln(abs(-q3/2))/3);
-           y1:=2*Af-a/3;
-          end;
-        end else
-       if d<0 then
-        begin
-         if q3<0 then F:=Arctan(-2*sqrt(-d)/q3);
-         if q3>0 then F:=Arctan(-2*sqrt(-d)/q3)+Pi;
-         if q3=0 then F:=Pi/2;
-         y1:=2*sqrt(-p3/3)*cos((F+2*Pi)/3)-a/3;
-        end;
-      end;
-    begin
-     if (a*y1/2-c)<0 then
-     begin
-      m:=sqrt(abs(aa*aa/4-bb+y1));
-      n:=-sqrt(abs(y1*y1/4-dd));
-     end
-    else
-     begin
-      m:=sqrt(abs(aa*aa/4-bb+y1));
-      n:=sqrt(abs(y1*y1/4-dd));
-     end;
-     end;
-     begin
-      b:=aa/2-m;
-      c:=y1/2-n;
-      d1:=b*b-4*c;
-       if d1<0 then
-       begin
-        Af1:=-b/(2*q1*w1*e1*r1*t1);
-        Bt1:=sqrt(-d1)/(2*q1*w1*e1*r1*t1);
-       end
-              else
-       begin
-         x1:=(-r-sqrt(d1))/(2*q1*w1*e1*r1*t1) ;
-         x2:=(-r+sqrt(d1))/(2*q1*w1*e1*r1*t1);
-       end;
-    end;
-    begin
-      b:=aa/2+m;
-      c:=y1/2+n;
-      d2:=b*b-4*c;
-       if d2<0 then
-       begin
-        Af2:=-b/(2*q1*w1*e1*r1*t1);
-        Bt2:=sqrt(-d2)/(2*q1*w1*e1*r1*t1);
-       end
-              else
-       begin
-         x3:=(-r-sqrt(d2))/(2*q1*w1*e1*r1*t1);
-         x4:=(-r+sqrt(d2))/(2*q1*w1*e1*r1*t1);
-       end;
-      end;
-    if d1=d2 then begin
-    Edit12.Text:='Q = '+FloatToStr(d)+'; D = '+FloatToStr(d1); end
-    else begin
-    Edit12.Text:='Q = '+FloatToStr(d)+'; D[1] = '+FloatToStr(d1)+'; D[2] = '+FloatToStr(d2); end;
-    if d1>=0 then if d2>=0 then Edit6.Text:='X[1] = '+FloatToStr(x1)+';  X[2] = '+FloatToStr(x2)+';  X[3] = '+FloatToStr(x3)+';  X[4] = '+FloatToStr(x4);
-    if d1>=0 then if d2<0 then Begin if Bt2=1 then Edit6.Text:='X[1] = '+FloatToStr(x1)+';  X[2] = '+FloatToStr(x2)+';  X[3,4] = '+FloatToStr(Af2)+' +/- i'
-    else Edit6.Text:='X[1] = '+FloatToStr(x1)+';  X[2] = '+FloatToStr(x2)+';  X[3,4] = '+FloatToStr(Af2)+' +/- '+FloatToStr(Bt2)+'*i'; end;
-    if d1<0 then if d2>=0 then Begin if Bt1=1 then Edit6.Text:='X[1] = '+FloatToStr(x3)+';  X[2] = '+FloatToStr(x4)+';  X[3,4] = '+FloatToStr(Af1)+' +/- i'
-    else Edit6.Text:='X[1] = '+FloatToStr(x3)+';  X[2] = '+FloatToStr(x4)+';  X[3,4] = '+FloatToStr(Af1)+' +/- '+FloatToStr(Bt1)+'*i'; end;
-    if d1<0 then if d2<0 then Begin
-    if (Bt1=1) and (Bt2=1) then Edit6.Text:='X[1,2] = '+FloatToStr(Af1)+' +/- i;  X[3,4] = '+FloatToStr(Af2)+' +/- i'
-    else if bt1=1 then Edit6.Text:='X[1,2] = '+FloatToStr(Af1)+' +/- i;  X[3,4] = '+FloatToStr(Af2)+' +/- '+FloatToStr(Bt2)+'*i'
-    else if Bt2=1 then Edit6.Text:='X[1,2] = '+FloatToStr(Af1)+' +/- '+FloatToStr(Bt1)+'*i;  X[3,4] = '+FloatToStr(Af2)+' +/- i'
-    else Edit6.Text:='X[1,2] = '+FloatToStr(Af1)+' +/- '+FloatToStr(Bt1)+'*i;  X[3,4] = '+FloatToStr(Af2)+' +/- '+FloatToStr(Bt2)+'*i';
-   end;
-   Edit12.Visible:=True;
-  end;
+  if x12 =0 then
+  Edit6.Text:= 'X[1] = '+FloatToStr(x11)+'; X[2] = '+FloatToStr(x21)+'; '
+  else Edit6.Text:= 'X[1,2] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i; ';
+  if x32 =0 then
+  Edit6.Text:=Edit6.Text + 'X[3] = '+FloatToStr(x31)+'; X[4] = '+FloatToStr(x41)+'; '
+  else Edit6.Text:=Edit6.Text + 'X[3,4] = '+FloatToStr(x31)+' +/- '+FloatToStr(x32)+'*i; ';
+  Edit12.Visible:=True;
  end;
 end;
 end;
@@ -1033,6 +953,7 @@ begin
  if Image1.Top=0 then Image1.Top:=-220;
  Edit12.Visible:=False;
 end;
+
 
 procedure TForm1.Edit10KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
