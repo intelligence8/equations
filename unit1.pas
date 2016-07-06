@@ -304,10 +304,10 @@ if Checkbox5.Checked=False then
        if x12 <> 0 then
        begin
         if x12=1 then begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i ';
         end
         else begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i ';
         end
        end else //x12 = 0
        begin
@@ -338,10 +338,10 @@ begin
        if x12 <> 0 then
        begin
         if x12=1 then begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i ';
         end
         else begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i ';
         end
        end else //x12 = 0
        begin
@@ -385,11 +385,11 @@ begin
         secondDegree(r/e,t/e,x11,x12,x21,x22);
         if x12=1 then
         begin
-         Edit6.Text:='X = '+FloatToStr(x11)+' +/- i  (Complex)';
+         Edit6.Text:='X = '+FloatToStr(x11)+' +/- i ';
         end
         else if x12 <> 0  then
         begin
-         Edit6.Text:='X = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i  (Complex)';
+         Edit6.Text:='X = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i ';
         end
         else if x12 = 0  then
         begin
@@ -407,7 +407,7 @@ begin
          Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2] = '+FloatToStr(x21)+';  X[3] = '+FloatToStr(x31);
        end else
        begin
-         Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2,3] = '+FloatToStr(x21)+' +/- '+FloatToStr(x22)+'*i  (Complex)';
+         Edit6.Text:='X[1] = '+FloatToStr(x11)+';  X[2,3] = '+FloatToStr(x21)+' +/- '+FloatToStr(x22)+'*i ';
        end;
      end;
      Edit12.Visible:=True;
