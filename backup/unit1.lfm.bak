@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 340
+  Left = 661
   Height = 161
-  Top = 236
+  Top = 185
   Width = 563
   HorzScrollBar.Page = 563
   HorzScrollBar.Visible = False
@@ -23595,7 +23595,7 @@ object Form1: TForm1
   end
   object Edit3: TEdit
     Left = 248
-    Height = 29
+    Height = 22
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23609,7 +23609,7 @@ object Form1: TForm1
   end
   object Edit4: TEdit
     Left = 360
-    Height = 29
+    Height = 22
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23623,7 +23623,7 @@ object Form1: TForm1
   end
   object Edit5: TEdit
     Left = 456
-    Height = 29
+    Height = 22
     Top = 32
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23654,7 +23654,7 @@ object Form1: TForm1
   end
   object Edit7: TEdit
     Left = 24
-    Height = 29
+    Height = 22
     Top = 72
     Width = 40
     Enabled = False
@@ -23670,7 +23670,7 @@ object Form1: TForm1
   end
   object Edit8: TEdit
     Left = 136
-    Height = 29
+    Height = 22
     Top = 72
     Width = 40
     Enabled = False
@@ -23686,7 +23686,7 @@ object Form1: TForm1
   end
   object Edit9: TEdit
     Left = 248
-    Height = 29
+    Height = 22
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23701,7 +23701,7 @@ object Form1: TForm1
   end
   object Edit10: TEdit
     Left = 360
-    Height = 29
+    Height = 22
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23716,7 +23716,7 @@ object Form1: TForm1
   end
   object Edit11: TEdit
     Left = 456
-    Height = 29
+    Height = 22
     Top = 72
     Width = 40
     Font.CharSet = RUSSIAN_CHARSET
@@ -23936,7 +23936,7 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 24
-    Height = 29
+    Height = 22
     Top = 32
     Width = 40
     Enabled = False
@@ -23951,7 +23951,7 @@ object Form1: TForm1
   end
   object Edit2: TEdit
     Left = 136
-    Height = 29
+    Height = 22
     Top = 32
     Width = 40
     Enabled = False
@@ -23966,7 +23966,7 @@ object Form1: TForm1
   end
   object Edit12: TEdit
     Left = 128
-    Height = 24
+    Height = 22
     Top = 124
     Width = 267
     ReadOnly = True
@@ -23993,7 +23993,7 @@ object Form1: TForm1
   end
   object Edit6: TEdit
     Left = 24
-    Height = 29
+    Height = 22
     Top = 80
     Width = 371
     Font.CharSet = RUSSIAN_CHARSET
@@ -24057,7 +24057,7 @@ object Form1: TForm1
     Height = 105
     Top = 8
     Width = 248
-    Caption = 'Version:   2.0                                                                              Date:   06.07.2016                                                         License:  Free Software                                           Code:  Nikita Fedorov                                           Design:  Kirill Kiselev, Nikita Fedorov                                               Latest Version:'
+    Caption = '       Version:   2.0                                                Date:   07.06.2013                                  License:  Free Software                                 Code:  Nikita Fedorov                              Design:  Kirill Kiselev, Nikita Fedorov             Latest Version:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -12

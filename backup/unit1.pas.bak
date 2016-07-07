@@ -217,35 +217,36 @@ begin
 procedure TForm1.Button1Click(Sender: TObject);
 var q,w,e,r,t,q1,w1,e1,r1,t1,a,b,c,aa,bb,cc,dd,m,n,y1,d,p3,q3,Af,Af1,Af2,Bt,Bt1,Bt2,Re,Im,F,x1,x2,x3,x4,z1,z2,d1,d2,b1,c1,x11,x12,x21,x22,x31,x32,x41,x42: extended; answer: string;
 begin
-
- if Edit1.Text='' then Edit1.Text:=FloatToStr(1);
- if Edit2.Text='' then Edit2.Text:=FloatToStr(1);
- if Edit3.Text='' then Edit3.Text:=FloatToStr(1);
- if Edit4.Text='' then Edit4.Text:=FloatToStr(1);
- if Edit5.Text='' then Edit5.Text:=FloatToStr(0);
-
- if CheckBox1.Checked=False then Edit1.Text:='';
- if CheckBox2.Checked=False then Edit2.Text:='';
- if CheckBox3.Checked=False then Edit3.Text:='';
- if CheckBox4.Checked=False then Edit4.Text:='';
- if CheckBox5.Checked=False then Edit5.Text:='';
-
- if CheckBox1.Checked=False then Edit7.Text:='';
- if CheckBox2.Checked=False then Edit8.Text:='';
- if CheckBox3.Checked=False then Edit9.Text:='';
- if CheckBox4.Checked=False then Edit10.Text:='';
- if CheckBox5.Checked=False then Edit11.Text:='';
-
- if CheckBox1.Checked=False then q:=0
- else q:=StrToFloat(Edit1.Text);
- if CheckBox2.Checked=False then w:=0
- else w:=StrToFloat(Edit2.Text);
- if CheckBox3.Checked=False then e:=0
- else e:=StrToFloat(Edit3.Text);
- if CheckBox4.Checked=False then r:=0
- else r:=StrToFloat(Edit4.Text);
- if CheckBox5.Checked=False then t:=0
- else t:=StrToFloat(Edit5.Text);
+ q1 := 1;
+ w1 := 1;
+ e1 := 1;
+ r1 := 1;
+ t1 := 1;
+ if Edit1.Text='' then
+   begin
+     Edit1.Text:=FloatToStr(0);
+     checkbox1.Checked:=false;
+   end;
+ if Edit2.Text='' then
+   begin
+     Edit2.Text:=FloatToStr(0);
+     checkbox2.Checked:=false;
+   end;
+ if Edit3.Text='' then
+   begin
+     Edit3.Text:=FloatToStr(0);
+     checkbox3.Checked:=false;
+   end;
+ if Edit4.Text='' then
+   begin
+     Edit4.Text:=FloatToStr(0);
+     checkbox4.Checked:=false;
+   end;
+ if Edit5.Text='' then
+   begin
+     Edit5.Text:=FloatToStr(0);
+     checkbox5.Checked:=false;
+   end;
 
  if Edit7.Text='' then Edit7.Text:=FloatToStr(1);
  if Edit8.Text='' then Edit8.Text:=FloatToStr(1);
@@ -253,24 +254,93 @@ begin
  if Edit10.Text='' then Edit10.Text:=FloatToStr(1);
  if Edit11.Text='' then Edit11.Text:=FloatToStr(1);
 
- q1:=StrToFloat(Edit7.Text);
- w1:=StrToFloat(Edit8.Text);
- e1:=StrToFloat(Edit9.Text);
- r1:=StrToFloat(Edit10.Text);
- t1:=StrToFloat(Edit11.Text);
+ if CheckBox1.Checked=False then
+   begin
+     Edit1.Text:='';
+     Edit7.Text:='';
+     q:=0;
+   end
+ else
+   begin
+     q:=StrToFloat(Edit1.Text);
+     q1:=StrToFloat(Edit7.Text);
+   end;
+ if CheckBox2.Checked=False then
+   begin
+     Edit2.Text:='';
+     Edit8.Text:='';
+     w:=0;
+   end
+ else
+   begin
+     w:=StrToFloat(Edit2.Text);
+     w1:=StrToFloat(Edit8.Text);
+   end;
+ if CheckBox3.Checked=False then
+   begin
+     Edit3.Text:='';
+     Edit9.Text:='';
+     e:=0;
+   end
+ else
+   begin
+     e:=StrToFloat(Edit3.Text);
+     e1:=StrToFloat(Edit9.Text);
+   end;
+ if CheckBox4.Checked=False then
+   begin
+     Edit4.Text:='';
+     Edit10.Text:='';
+     r:=0;
+   end
+ else
+   begin
+     r:=StrToFloat(Edit4.Text);
+     r1:=StrToFloat(Edit10.Text);
+   end;
+ if CheckBox5.Checked=False then
+   begin
+     Edit5.Text:='';
+     Edit11.Text:='';
+     t:=0;
+   end
+ else
+   begin
+     t:=StrToFloat(Edit5.Text);
+     t1:=StrToFloat(Edit11.Text);
+   end;
 
- if q=0 then CheckBox1.Checked:=False;
- if w=0 then CheckBox2.Checked:=False;
- if e=0 then CheckBox3.Checked:=False;
- if r=0 then CheckBox4.Checked:=False;
- if t=0 then CheckBox5.Checked:=False;
+ if q=0 then
+   begin
+     CheckBox1.Checked:=False;
+     Edit1.text := '';
+   end;
+ if w=0 then
+   begin
+     CheckBox2.Checked:=False;
+     Edit2.text := '';
+   end;
+ if e=0 then
+   begin
+     CheckBox3.Checked:=False;
+     Edit3.text := '';
+   end;
+ if r=0 then
+   begin
+     CheckBox4.Checked:=False;
+     Edit4.text := '';
+   end;
+ if t=0 then
+   begin
+     CheckBox5.Checked:=False;
+     Edit5.text := '';
+   end;
 
  if q=0 then Edit1.Text:='';
  if w=0 then Edit2.Text:='';
  if e=0 then Edit3.Text:='';
  if r=0 then Edit4.Text:='';
  if t=0 then Edit5.Text:='';
-
 
  if CheckBox1.Checked=False then Edit7.Text:='';
  if CheckBox2.Checked=False then Edit8.Text:='';
@@ -288,16 +358,21 @@ begin
   r:=(r*q1*w1*e1*t1);
   t:=(t*q1*w1*e1*r1);
   //--------------------------------------------------------------------------------------------------------
-if Checkbox5.Checked=False then
- begin if checkbox4.checked=False then
-  begin if checkbox3.checked=false then
-   begin if checkbox2.checked=false then
-    edit6.Text:='X[1] = X[2] = X[3] = X[4] = 0' else      //checkbox2.checked
+
+if t = 0 then
+ begin if r = 0 then
+  begin if e = 0 then
+   begin if w = 0 then
+    begin
+     if q = 0 then edit6.Text:='0 = 0'
+     else edit6.Text:='X[1] = X[2] = X[3] = X[4] = 0'
+    end
+   else     // w <> 0
    begin
     if q=0 then Edit6.Text:='X[1] = X[2] = X[3] = 0' else
     begin
-    x1:=-w/q;
-    Edit6.Text:='X[1] = '+FloatToStr(x1)+';  X[2] = X[3] = X[4] = 0';
+      x1:=-w/q;
+      Edit6.Text:='X[1] = '+FloatToStr(x1)+';  X[2] = X[3] = X[4] = 0';
     end
    end;
    end
@@ -391,14 +466,8 @@ begin
    begin
      if e=0 then
      begin
-       if r=0 then
-       begin
-         if t=0 then
-         Edit6.Text:='0=0'
-                else
-         Edit6.Text:='No solutions';
-       end
-              else {ПЕРВАЯ СТЕПЕНЬ}
+       if r=0 then Edit6.Text:='No solutions'
+         else {ПЕРВАЯ СТЕПЕНЬ}
        begin
          x1:=(-t)/r;
          Edit6.Text:='X = '+FloatToStr(x1);
