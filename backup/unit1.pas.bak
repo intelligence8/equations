@@ -376,11 +376,11 @@ if t = 0 then
     end
    end;
    end
-  else //  checkbox3.checked  5 4 3 квадратное
+  else //  e <>0 checkbox3.checked  5 4 3 квадратное
   begin
    if q=0 then
     begin
-     if w=0 then Edit6.Text:='X = 0'
+     if w=0 then Edit6.Text:='X[1,2] = 0'
     else // w != 0, q = 0
     begin
     x1:=-e/w;
@@ -409,7 +409,7 @@ if t = 0 then
    Edit12.Visible:=True;
   end;
  end
-else    //checkbox4.checked
+else    //r <> 0 checkbox4.checked
 begin
   if q=0 then
   begin
@@ -458,7 +458,7 @@ thirdDegree(w/q,e/q,r/q,x11,x21,x22,x31,x32,answer);
       end;
     end;
   end
-else    //checkBox5.checked
+else    //t <> 0 checkBox5.checked
 begin
   if q=0 then
   begin
@@ -507,7 +507,7 @@ begin
      end;
      Edit12.Visible:=True;
   end
-  else   {ЧЕТВЕРТАЯ СТЕПЕНЬ}
+  else begin  {ЧЕТВЕРТАЯ СТЕПЕНЬ}
   fourthDegree(w/q,e/q,r/q,t/q,x11,x12,x21,x22,x31,x32,x41,x42,answer);
   Edit12.Text:=answer;
 
@@ -518,6 +518,7 @@ begin
   Edit6.Text:=Edit6.Text + 'X[3] = '+FloatToStr(x31)+'; X[4] = '+FloatToStr(x41)+'; '
   else Edit6.Text:=Edit6.Text + 'X[3,4] = '+FloatToStr(x31)+' +/- '+FloatToStr(x32)+'*i; ';
   Edit12.Visible:=True;
+  end;
  end;
 end;
 end;

@@ -429,10 +429,10 @@ begin
        if x12 <> 0 then
        begin
         if x12=1 then begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- i ';
+         Edit6.Text:='X[1] = 0;  X[2,3] = '+FloatToStr(x11)+' +/- i ';
         end
         else begin
-         Edit6.Text:='X[1] = X[2] = 0;  X[3,4] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i';
+         Edit6.Text:='X[1] = 0;  X[2,3] = '+FloatToStr(x11)+' +/- '+FloatToStr(x12)+'*i';
         end
        end else //x12 = 0
        begin
